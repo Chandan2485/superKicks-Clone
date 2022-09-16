@@ -11,6 +11,7 @@
     grid-template-columns: 100px 1fr 1fr;
     grid-gap: 20px;
 }
+
 .all-product-img,.product-img{
     height: 500px;
     overflow: hidden;
@@ -63,7 +64,21 @@
     line-height: 1.5;
     text-align: justify;
 }
-
+@media screen and (max-width:800px) {
+    .single-product-page{
+        grid-template-columns:1fr;
+        grid-template-rows: 200px;
+       
+    }
+    .all-product-img{
+        display: flex;
+        justify-content: center;
+    }
+    .all-product-img img{
+        width: 200px;
+        margin: 10px;
+    }
+}
 
 
 
