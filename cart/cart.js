@@ -45,7 +45,8 @@ cartItemShow()
 function cartSubtotalShow() {
 
     let subtotalprice = 0
-
+    console.log(cartdata)
+    console.log(data)
     cartdata.forEach((element) => {
         data.forEach((e) => {
             if (element.id == e.id) {
