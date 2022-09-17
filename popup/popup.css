@@ -61,6 +61,10 @@
     overflow: hidden;
    
 }
+.popup_remove_btn{
+    cursor: pointer;
+    font-weight: bold;
+}
 
 
 
