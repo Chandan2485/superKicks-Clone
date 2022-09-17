@@ -5,6 +5,8 @@ let data=JSON.parse(Sdata)
 
 let singleproductpage=document.querySelector(".single-product-page")
 let suggestionProduct=document.querySelector(".s-products")
+let popupbody=document.querySelector(".popup_total_product")
+let popuptotal=document.querySelector(".popup_price")
 
 let cartArray=[]
 
@@ -38,7 +40,7 @@ function showSelectProduct(){
                   <div class="product-size-chat"><a href="../size chat/sizeChat.html">SIze Chat</a></div>
                   <div class="add-cart-box">
                       <input type="number" name="" id="" min="1" value="1">
-                      <button id="${e.id}">Add cart</button>
+                      <button id="${e.id}" class="popupshow">Add cart</button>
                   </div>
               </section>
               `
@@ -103,19 +105,16 @@ function suggestionProductshow(e){
 singleproductpage.addEventListener("click",addproducttocartarray)
 
 function addproducttocartarray(e){
+    popup.classList.remove("hide")
+    popupbody.innerHTML=null
     // check if local is empty ---> if empty push to cartArry else----.> fetch the data from local push to cartarray then push the new data and stored in the local.
     if(e.target.id==y){
 
         
 
         if(localStorage.getItem("a")){
-            // console.log(JSON.parse(localStorage.getItem("a")))
-            // console.log((typeof (JSON.parse(localStorage.getItem("a")))))
-
+           
             let c=JSON.parse(localStorage.getItem("a"))
-
-            // console.log(e.target.id)
-            // console.log(e.target.previousElementSibling.value);
             
           c.push({
                 id: e.target.id,
@@ -149,6 +148,16 @@ function addproducttocartarray(e){
         TotalPeoduct.forEach((e) => {
             if (element.id == e.id) {
                 headerprice += (e.price * element.qut)
+
+                popupbody.innerHTML+=`
+                <div class="popup_product">
+                <div class="popup_remove_btn" id="${e.id}">x</div>
+                <p class="popup_product_name">${e.title}</p>
+                <div class="popup_product_img">
+                  <img src="${e.category.image}" alt="" />
+                </div>
+              </div>
+                `
             }
     
         })
@@ -156,6 +165,7 @@ function addproducttocartarray(e){
     })
     
     // console.log(headerprice)
+    popuptotal.innerText=`₹${headerprice}`
     Totalprice.innerText=headerprice
 
 }
