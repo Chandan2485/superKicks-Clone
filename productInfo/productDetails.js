@@ -105,12 +105,12 @@ function suggestionProductshow(e){
 singleproductpage.addEventListener("click",addproducttocartarray)
 
 function addproducttocartarray(e){
-    popup.classList.remove("hide")
-    popupbody.innerHTML=null
+   
+   
     // check if local is empty ---> if empty push to cartArry else----.> fetch the data from local push to cartarray then push the new data and stored in the local.
     if(e.target.id==y){
-
-        
+        popupbody.innerHTML=null
+        popup.classList.remove("hide")
 
         if(localStorage.getItem("a")){
            
