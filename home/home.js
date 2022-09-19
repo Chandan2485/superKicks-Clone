@@ -6,6 +6,14 @@ let stotrsimg=[
   "../img/HYD.jpg"
 ]
 
+let cartArray=[]
+
+if(!(localStorage.getItem("a"))){
+    localStorage.setItem("a",JSON.stringify(cartArray))
+}
+
+
+
 let storesindia=document.querySelector(".stores-india")
 let nextbtn=document.querySelector(".next")
 let pevbtn=document.querySelector(".pev")

@@ -8,9 +8,11 @@ let suggestionProduct=document.querySelector(".s-products")
 let popupbody=document.querySelector(".popup_total_product")
 let popuptotal=document.querySelector(".popup_price")
 
-let cartArray=[]
+// let cartArray=[]
 
-
+// if(!(localStorage.getItem("a"))){
+//     localStorage.setItem("a",JSON.stringify(userArr))
+// }
 
 function showSelectProduct(){
 
@@ -105,7 +107,7 @@ function suggestionProductshow(e){
 singleproductpage.addEventListener("click",addproducttocartarray)
 
 function addproducttocartarray(e){
-   
+    let flag=0
    
     // check if local is empty ---> if empty push to cartArry else----.> fetch the data from local push to cartarray then push the new data and stored in the local.
     if(e.target.id==y){
@@ -116,27 +118,41 @@ function addproducttocartarray(e){
            
             let c=JSON.parse(localStorage.getItem("a"))
             
-          c.push({
-                id: e.target.id,
-                qut:e.target.previousElementSibling.value
+            c.forEach((e)=>{
+            data.forEach((element)=>{
+                if(e.id==element.id){
+                    flag++
+                    alert("Adding Ones")
+                }
             })
-            let str1=JSON.stringify(c)
-            localStorage.setItem("a",str1)
+            })
         
         }
-        else{
-            cartArray.push({
-                id: e.target.id,
-                qut:e.target.previousElementSibling.value
-            })
+        // else{
+        //     cartArray.push({
+        //         id: e.target.id,
+        //         qut:e.target.previousElementSibling.value
+        //     })
 
-            let str1=JSON.stringify(cartArray)
-            localStorage.setItem("a",str1)
-        }
+        //     let str1=JSON.stringify(cartArray)
+        //     localStorage.setItem("a",str1)
+        // }
         // localStorage.getItem("a")
-      
-        
     }
+
+
+    if(!flag){
+        let cart=JSON.parse(localStorage.getItem("a"))
+
+          cart.push({
+                id: e.target.id,
+                qut:e.target.previousElementSibling.value
+            })
+            let str1=JSON.stringify(cart)
+            localStorage.setItem("a",str1)
+    }
+
+
     let bag = document.querySelector(".bag");
     let cart=JSON.parse(localStorage.getItem("a"))
     bag.innerText=cart.length
