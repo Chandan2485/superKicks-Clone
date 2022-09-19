@@ -119,25 +119,13 @@ function addproducttocartarray(e){
             let c=JSON.parse(localStorage.getItem("a"))
             
             c.forEach((e)=>{
-            data.forEach((element)=>{
-                if(e.id==element.id){
+                if(e.id==y){
                     flag++
                     alert("Adding Ones")
                 }
             })
-            })
         
         }
-        // else{
-        //     cartArray.push({
-        //         id: e.target.id,
-        //         qut:e.target.previousElementSibling.value
-        //     })
-
-        //     let str1=JSON.stringify(cartArray)
-        //     localStorage.setItem("a",str1)
-        // }
-        // localStorage.getItem("a")
     }
 
 
